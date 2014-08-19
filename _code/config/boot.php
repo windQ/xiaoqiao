@@ -25,7 +25,7 @@ return array(
     /**
      * QeePHP 框架所在目录
      */
-    'QEEPHP_DIR'            => "/data/www/xiaoqiao/qeephp",
+    'QEEPHP_DIR'            => "{$root_dir}/lib/qeephp",
 
     /**
      * 应用程序的 ID，用于唯一标识一个应用程序
