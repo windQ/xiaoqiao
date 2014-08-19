@@ -1,0 +1,14 @@
+﻿auth: jackwu   email:262348314@qq.com
+
+1、library\extend\behavior\acluser.php
+      增加了自动记录session功能，与多username_prop 登入支持
+2、添加了library\db\adapter\mysql.php 中的415到422行
+      使得mysql not_null字段可以插入''这样的空值，
+
+
+ 3、qeephp\library\orm\activerecord\association\hasmany.php文件中的220行229行
+        将target_key改成mid_target_key，
+	中间表中查询的不应该是目标表的键，应该是中间表自己的键，对照可以参考
+	_updateRelationByTable方法中的写法
+
+	248行，增加一个mid_source_key的限定条件，否则用中间模型删除会出现目标键的所有数据全部删除，应该是一个bug
