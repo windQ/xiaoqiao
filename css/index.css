@@ -5,7 +5,7 @@
     .header .header_nav{height: 45px;background: url(../images/nav_bg.gif) repeat-x;overflow: hidden;}
     .header .header_nav ul{width: 950px;margin: 5px auto 0px;}
     .header .header_nav ul li{float: left;}
-    .header .header_nav ul li a{height: 35px;line-height: 35px;display: inline-block;font-size: 16px;color: #454545;width: 95px;text-align: center;}
+    .header .header_nav ul li a{height: 35px;line-height: 35px;display: inline-block;font-size: 16px;color: #454545;width: 95px;text-align: center;border-radius:5px; }
     .header .header_nav ul li a:hover,.header .header_nav ul li a.cur{background-color: #000;color: #FFF;}
 
     .scroll{overflow: hidden;height: 485px;position:relative;}

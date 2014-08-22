@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>彩妆</title>
+<meta name="Keywords" content="彩妆" />
+<meta name="Description" content="彩妆" />
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<style type="text/css">
+.cont {overflow: hidden;padding-bottom: 40px;}
+.cont .list{margin: 20px 0px 0px 20px;display: inline-block;}
+.cont .list li{width: 140px;height: 30px;line-height: 30px;margin-top: 5px;background-color: #ccc;padding-left: 10px;border-radius: 5px;font-size: 14px;cursor: pointer;}
+.cont .list li:hover,.cont .list li.cur{background-color: #000;color: #FFF;}
+.cont_right{float: right;width: 720px;margin-right: 20px;margin-top: 20px;}
+.cont_right span{display: block;height: 20px;background-color: #ddd;margin-top: 5px;}
+.cont_right ul{display: none;}
+.cont_right ul li{float: left;width: 150px;margin-top: 30px;margin-left: 25px;}
+.cont_right ul li p{text-align: center;height: 25px;line-height: 25px;font-weight: bold;color: #000;}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$(".list li").click(function(){
+			$(this).siblings().removeClass("cur");
+			$(this).addClass("cur");
+			var show_index = $(this).index();
+			$(".cont_right ul").hide();
+			$(".cont_right ul").eq(show_index).show();
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- 头部导航部分 -->
+	<div class="header">
+		<img src="images/banner.jpg">
+		<div class="header_nav">
+			<ul class="clearfix">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="about_us.html">关于我们</a></li>
+				<li><a href="team_info.html">团队介绍</a></li>
+				<li><a href="train.html">彩妆培训</a></li>
+				<li><a href="cooperation.html">商业和作</a></li>
+				<li><a href="make-up.html">新娘跟妆</a></li>
+				<li><a href="dynamic.html">工作室动态</a></li>
+				<li><a href="#">新闻发布</a></li>
+				<li><a href="production.html" class="cur">作品发布</a></li>
+				<li><a href="contact.html">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="cont w1000">
+		<ul class="list">
+			<li class="cur">彩妆</li>
+			<li>创意</li>
+			<li>时尚公益活动</li>
+			<li>舞台</li>
+			<li>新娘</li>
+			<li>学生作品</li>
+			<li>商业活动</li>
+			<li>工作室环境</li>
+			<li>婚礼活动</li>
+			<li>年会化妆活动</li>
+			<li>学生实践活动</li>
+			<li>企业员工形象培训</li>
+			<li>化妆师新娘作品</li>
+		</ul>
+		<div class="cont_right">
+			<span></span>
+			<!-- 彩妆 -->
+			<ul style="display:block">
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 创意 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 时尚公益活动 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 舞台 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 新娘 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 学生作品 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 商业活动 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 工作室环境 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 婚礼活动 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 年会化妆活动 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 学生实践活动 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 企业员工形象培训 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+			<!-- 化妆师新娘作品 -->
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/img_010.jpg">
+						<p>总监新娘化妆</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 脚 -->
+	<div class="w1000 shadow">
+		<img src="images/shadow.jpg">
+	</div>
+	<div class="w1000 contact_bottom clearfix">
+		<div class="contact_left">
+			<img src="images/img_5.jpg" width="85" height="85">
+			<p>
+				<span>ST时尚美学彩妆造型工作室</span>
+				上海ST时尚美学彩妆造型工作室是一家专业学化妆,新娘跟妆,广告化妆,彩妆造型培训,个人形象设计,影视化妆,舞台化妆,大型商演化妆造型的工作室，上海专业新娘跟妆,徐汇区专业彩妆造型培训,上海专业礼仪培训,上海专业彩妆造型,上海专业舞台化妆,上海专业舞台化妆培训班,专业舞台化妆培训班,上海专业年会化妆,专业彩妆造型培训，（包教包会，推荐工作，两年内免费进修，,咨询电话:13818843963 ，13651731734 ，021-54653259。
+			</p>
+		</div>
+		<div class="contact_right">
+			<ul>
+				<li class="user">陈老师、苏老师</li>
+				<li class="phone">(M)13651731734 / 13818843963</li>
+				<li class="mail">173591863@qq.com</li>
+			</ul>
+			<img src="images/QRCode.png">
+		</div>
+	</div>
+	<div class="foot">
+		<ul class="clearfix">
+			<li>上海专业学化妆造型培训</li>
+			<li>上海徐汇专业学化妆盘发培训</li>
+			<li>上海专业新娘跟妆盘发培训</li>
+			<li>上海专业企业员工形象培训</li>
+			<li>上海专业承接商业演出化妆造型</li>
+		</ul>
+	</div>
+	<div class="foot">
+		<ul class="clearfix">
+			<li>Copyright ©2008 [使用者网站] Powered By [网站程序名称] Version 1.0.0 </li>
+		</ul>
+	</div>
+</body>
+</html>
