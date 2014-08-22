@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body>
+<div class="style-wrap addContent">
+	<div class="main addTopicWrap">
+	<form method="post" enctype="multipart/form-data" action='/editor/specialTopic_manage_graphic.php?entry=specialTopic_curd' name='spForm' id="myform">
+    	<input type='hidden' name='mainID' value='839'>
+		<input type='hidden' name='tokenKey' value='023a7eeefd87a4147c5'>
+    	<div class="title">工作室动态图片上传</div>
+        <div class="wrap">
+            <ul>
+            	<input type='hidden' value='839'>
+                <li class="tips"><label class="name">大图：</label>
+                <div id="queue"></div>
+                <input id="file_upload" class="file" name="big_pic" type="file">
+                <span>图片尺寸：800*600</span></li>
+                
+                <li class="tj"><label class="name">小图：</label><label><input name="coverPic" class="uploadfile" type="file" value="上传" >图片尺寸：150*190</label>
+                </li>
+            </ul>
+            
+            <ul class="childTopic">
+            	<input type='hidden' name='childID[]' value='877'>
+                <li><label class="name">栏目：</label>
+                    <select>---请选择---
+                        <option>学生动态</option>
+                        <option>学生实践</option>
+                        <option>商业活动</option>
+                        <option>公益活动</option>
+                    </select>
+                </li>
+                <li><label class="name">标题：</label><input name="child_theme_title[]" class="topicText dashedShow" value="" type="text" placeholder=""></li>
+                <li><label class="name">描述：</label><textarea id="editor1" class="dashedShow" name="child_theme_description[]" cols="" rows="" placeholder=""></textarea></li>
+            </ul>
+        </div>
+        <div><input class="submitBt green_btn" type="submit" value="提 交" onclick='return checkForm();'><input class="submitBt green_btn ylBt" type="button" value="取 消"></div>
+    </form>
+    </div>
+</div>
+</body>
+</html>

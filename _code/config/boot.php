@@ -30,7 +30,7 @@ return array(
     /**
      * 应用程序的 ID，用于唯一标识一个应用程序
      */
-    'APPID'                 => 'xiaoqiao2',
+    'APPID'                 => 'xiaoqiao',
 
     /**
      * 运行模式
@@ -88,9 +88,11 @@ return array(
             // 其他模式缓存 120 秒
             'life_time' => $run_mode == 'deploy' ?
                                 86400 :
-                                ($run_mode == 'devel' ? 10 : 120),
+                                ($run_mode == 'devel' ? 0 : 120),
             'serialize' => true,
             'cache_dir' => "{$root_dir}/_tmp/runtime_cache",
+            //目录深度大于0
+            'cache_dir_depth' => 1
         ),
     ),
 );

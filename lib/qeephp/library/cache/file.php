@@ -141,7 +141,7 @@ class QCache_File
 		unset($data);
 
 		// 写入缓存
-		file_put_contents($path, $content, LOCK_EX);
+		file_put_contents($path, $content, LOCK_EX);exit();
 	}
 
 	/**
@@ -305,7 +305,7 @@ class QCache_File
             {
                 $root_dir .= substr($hash, 0, $i) . DIRECTORY_SEPARATOR;
                 if (is_dir($root_dir)) { continue; }
-                mkdir($root_dir, $policy['cache_dir_umask']);
+                mkdir($root_dir, $policy['cache_dir_umask'], true);
             }
         }
 
