@@ -141,7 +141,7 @@ class QCache_File
 		unset($data);
 
 		// 写入缓存
-		file_put_contents($path, $content, LOCK_EX);exit();
+		file_put_contents($path, $content, LOCK_EX);
 	}
 
 	/**

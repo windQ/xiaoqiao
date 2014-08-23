@@ -34,7 +34,14 @@ abstract class Controller_Abstract extends QController_Abstract
      * @var CommunityApp
      */
     protected $_app;
-
+    
+    /**
+     * 当前登陆的用户信息
+     *
+     * @var array | null
+     */
+    protected $_user = null;
+    
     /**
      * 构造函数
      */
@@ -42,6 +49,46 @@ abstract class Controller_Abstract extends QController_Abstract
     {
         parent::__construct();
         $this->_app = $app;
+    }
+	/**
+     * 视图共用变量, 类的继承属性初始化
+     *
+     * @access protected
+     *
+     * @return void
+     */
+    protected function _init()
+    {
+        $this->_user = $this->_app->currentUser();
+        
+        $is_login = empty($this->_user) && !isset($this->_user['id']) && $this->_user['id'] < 1 ? false : true;
+
+        //这里定义的视图变量，所有视图都可以访问，只要控制器初始化时调用了该_init()方法，
+        //注意在具体action方法中不要定义user视图变量，否者会覆盖该变量
+        $this->_view['user'] = $this->_user;
+        
+        $this->_view['is_admin'] = false;
+        
+        if ($is_login)
+        {
+            $this->_current_user = Admin::find( 'id = ?', $this->_user[ 'id' ] )->getOne();
+            //再次检查数据库中是否有该用户，没有则设置为未登入
+            if( $this->_current_user->id )
+            {
+                $this->_view[ 'is_admin' ] = true;
+            }
+            else
+            {
+                $is_login = false;
+            }
+        }
+
+        $this->_view['is_login'] = $is_login;
+
+        if (!empty($_SERVER['HTTP_REFERER']))
+        {
+            $this->_http_referer = $_SERVER['HTTP_REFERER'];
+        }
     }
 
     /**
@@ -177,6 +224,20 @@ abstract class Controller_Abstract extends QController_Abstract
             'hidden_script'     => $script,
         ));
 
+        return $response;
+    }
+    
+	/**
+     * js 警告框跳转
+     */
+    protected function _redirectAlert($url, $message = '')
+    {
+    	if( $message == '' )
+    	{
+    		$response = "<script>window.location.href='" . $url . "';</script>";
+    	} else {
+        	$response = "<script>alert('" . $message . "'); window.location.href='" . $url . "';</script>";
+    	}
         return $response;
     }
 }

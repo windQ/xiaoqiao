@@ -9,10 +9,10 @@
 # devel 模式
 devel:
   driver:     mysql
-  host:       localhost
-  login:      username
-  password:   password
-  database:   xiaoqiao2_devel_db
+  host:       192.168.20.203
+  login:      ytmihgad
+  password:   
+  database:   xiaoqiao
   charset:    utf8
   prefix:
 
