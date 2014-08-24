@@ -3,39 +3,58 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <title></title>
-<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/admin.css" />
 </head>
 <body>
 <div class="style-wrap addContent">
 	<div class="main addTopicWrap">
-	<form method="post" enctype="multipart/form-data" action='/editor/specialTopic_manage_graphic.php?entry=specialTopic_curd' name='spForm' id="myform">
-    	<input type='hidden' name='mainID' value='839'>
-		<input type='hidden' name='tokenKey' value='023a7eeefd87a4147c5'>
-    	<div class="title">发布新闻</div>
+	<form method="post" action = "<?php echo url('admin/newsact');?>" enctype="multipart/form-data" id="myform">
+    	<div class="title">上传新闻</div>
         <div class="wrap">
             <ul class="childTopic">
-            	<input type='hidden' name='childID[]' value='877'>
-                <li><label class="name">标题：</label><input name="child_theme_title[]" class="topicText dashedShow" value="" type="text" placeholder=""></li>
+                <li><label class="name">标题：</label>
+                	<input name="title" class="topicText dashedShow" value="<?php echo $news->title;?>" type="text" />
+                </li>
                 <li><label class="name">栏目：</label>
-                    <select>---请选择---
-                        <option>行业动态</option>
-                        <option>培训课程</option>
-                        <option>商业化妆</option>
+                    <select name = 'sub_clomun'>
+                        <option value = '0'>---请选择---</option>
+                        <?php foreach( $sub_column as $sub_ls ):;
+                            $sub_column = $news->sub_column_id;
+                            if( $sub_column == $sub_ls->id )
+                            {
+                            	$select = "selected='selected'";
+                            } else {
+                            	$select = "";
+                            }
+                        ?>
+                        <option <?php echo $select;?> value = '<?php echo $sub_ls->id?>'><?php echo $sub_ls->name?></option>
+                        <?php endforeach;?>
                     </select>
                 </li>
-                <li><label class="name">内容：</label><textarea id="editor1" class="dashedShow" name="child_theme_description[]" cols="" rows="" placeholder=""></textarea></li>
-            </ul>
-            <ul>
-                <input type='hidden' value='839'>
-                <li class="tips"><label class="name">图片：</label>
-                <div id="queue"></div>
-                <input id="file_upload" class="file" name="big_pic" type="file">
-                <span>图片尺寸：800*600</span></li>
+                <?php /*商业合作栏目*/if( $column == 2 ):;?>
+                <li>
+                <label class="name">封面图：</label>
+                <input type = "file" name = 'cover' value = '' />
+                </li>
+                <?php endif;?>
+                <li><label class="name">内容：</label>
+                <script id="editor" style="width:1024px;height:500px;"><?php echo $news->contents;?></script>
+                </li>
             </ul>
         </div>
-        <div><input class="submitBt green_btn" type="submit" value="提 交" onclick='return checkForm();'><input class="submitBt green_btn ylBt" type="button" value="取 消"></div>
+        <div>
+            <input type = 'hidden' name = 'id' value = '<?php echo $news->id;?>' />
+            <input type = 'hidden' name = 'column' value = '<?php echo $column;?>' />
+	        <input class="submitBt green_btn" type="submit" value="提 交" onclick='return checkForm();' />
+	        <input class="submitBt green_btn ylBt" type="button" value="取 消" />
+        </div>
     </form>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/admin_fun.js"></script>
 </body>
 </html>

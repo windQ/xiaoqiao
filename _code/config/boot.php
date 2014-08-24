@@ -15,7 +15,7 @@ $run_mode = 'devel';
  *
  * error_reporting(E_ALL & ~(E_STRICT | E_NOTICE));
  */
-error_reporting(E_ALL | E_STRICT);
+error_reporting( E_ALL & ~( E_DEPRECATED | E_NOTICE ) );
 
 /**
  * 应用程序配置信息

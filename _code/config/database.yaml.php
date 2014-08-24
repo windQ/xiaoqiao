@@ -9,8 +9,8 @@
 # devel 模式
 devel:
   driver:     mysql
-  host:       192.168.20.203
-  login:      ytmihgad
+  host:       192.168.1.123
+  login:      root
   password:   
   database:   xiaoqiao
   charset:    utf8

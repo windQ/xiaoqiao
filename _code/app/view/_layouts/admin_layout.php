@@ -10,7 +10,7 @@
 
 <frameset cols="200,*"  rows="560,*" id="frame">
 	<frame src="<?php echo url('admin/left');?>" name="leftFrame" noresize="noresize" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" target="main" />
-	<frame src="<?php echo url('admin/newspost');?>" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" target="_self" />
+	<frame src="<?php echo url('admin/newspost',array('column'=>1));?>" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" target="_self" />
 </frameset>
 <noframes>
   <body></body>

@@ -43,6 +43,12 @@ abstract class Controller_Abstract extends QController_Abstract
     protected $_user = null;
     
     /**
+     * 来源url
+     * @var string
+     */
+    protected $_http_referer = null;
+    
+    /**
      * 构造函数
      */
     function __construct($app)

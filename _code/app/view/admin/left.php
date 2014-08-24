@@ -144,7 +144,8 @@ H1 a {
     <td width="182" valign="top">
         <div id="container">
         
-		      <h1 class="type"><a href="javascript:void(0)">新闻管理</a></h1>
+        
+              <h1 class="type"><a href="javascript:void(0)">彩妆培训</a></h1>
 		      <div class="content">
 		        <table width="100%" border="0" cellspacing="0" cellpadding="0">
 		          <tr>
@@ -152,9 +153,23 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-		          <li><a href="<?php echo url('admin/newspost');?>" target="main">上传新闻</a></li>
-		          <li><a href="<?php echo url('admin/newslist');?>" target="main">删除新闻</a></li>
+		          <li><a href="<?php echo url('admin/newspost',array('column'=>1));?>" target="main">上传新闻</a></li>
+		          <li><a href="<?php echo url('admin/newslist',array('column'=>1));?>" target="main">新闻列表</a></li>
 		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>1));?>" target="main">添加子栏目</a></li>
+		        </ul>
+		      </div>
+		      
+		      <h1 class="type"><a href="javascript:void(0)">商业合作</a></h1>
+		      <div class="content">
+		        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td><img src="images/menu_topline.gif" width="182" height="5" /></td>
+		          </tr>
+		        </table>
+		        <ul class="MM">
+		          <li><a href="<?php echo url('admin/newspost',array('column'=>2));?>" target="main">上传新闻</a></li>
+		          <li><a href="<?php echo url('admin/newslist',array('column'=>2));?>" target="main">新闻列表</a></li>
+		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>2));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
 		      
@@ -166,9 +181,9 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-		          <li><a href="<?php echo url('admin/makeup');?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/makeuplist');?>" target="main">删除图片</a></li>
-		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>2));?>" target="main">添加子栏目</a></li>
+		          <li><a href="<?php echo url('admin/makeup',array('column'=>3));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/makeuplist',array('column'=>3));?>" target="main">图片列表</a></li>
+		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>3));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
 		      
@@ -180,9 +195,23 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-				  <li><a href="<?php echo url('admin/studio');?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/studiolist');?>" target="main">删除图片</a></li>
-		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>3));?>" target="main">添加子栏目</a></li>
+				  <li><a href="<?php echo url('admin/studio',array('column'=>4));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/studiolist',array('column'=>4));?>" target="main">图片列表</a></li>
+		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>4));?>" target="main">添加子栏目</a></li>
+		        </ul>
+		      </div>
+		      
+		      <h1 class="type"><a href="javascript:void(0)">新闻发布</a></h1>
+		      <div class="content">
+		        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td><img src="images/menu_topline.gif" width="182" height="5" /></td>
+		          </tr>
+		        </table>
+		        <ul class="MM">
+		          <li><a href="<?php echo url('admin/newspost',array('column'=>5));?>" target="main">上传新闻</a></li>
+		          <li><a href="<?php echo url('admin/newslist',array('column'=>5));?>" target="main">新闻列表</a></li>
+		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>5));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
 		      
@@ -194,14 +223,13 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-		          <li><a href="<?php echo url('admin/product');?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/productlist');?>production_del.html" target="main">删除图片</a></li>
-		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>4));?>" target="main">添加子栏目</a></li>
+		          <li><a href="<?php echo url('admin/product',array('column'=>6));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/productlist',array('column'=>6));?>production_del.html" target="main">图片列表</a></li>
+		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>6));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
     	</div>
      
-      </div>
         <script type="text/javascript">
 		var contents = document.getElementsByClassName('content');
 		var toggles = document.getElementsByClassName('type');

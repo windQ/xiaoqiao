@@ -46,6 +46,41 @@ class Column extends QDB_ActiveRecord_Abstract
                  * 添加对象间的关联
                  */
                 # 'other' => array('has_one' => 'Class'),
+                
+                //关联新闻表
+                'columm_assoc_news' => array(
+                                QDB::HAS_MANY => 'news',
+                                'source_key'  => 'id',
+                                'target_key'  => 'column'
+                        ),
+                'sub_column_assoc_news' => array(
+                                QDB::HAS_MANY => 'news',
+                                'source_key'  => 'id',
+                                'target_key'  => 'sub_column_id'
+                        ),
+                //关联作品表
+                'columm_assoc_product' => array(
+                                QDB::HAS_MANY => 'product',
+                                'source_key'  => 'id',
+                                'target_key'  => 'column'
+                        ),
+                'sub_column_assoc_product' => array(
+                                QDB::HAS_MANY => 'product',
+                                'source_key'  => 'id',
+                                'target_key'  => 'sub_column_id'
+                        ),
+                //关联自身 子栏目 
+                'column_assoc_sub_column' => array(
+                                QDB::HAS_MANY => 'column',
+                                'source_key'  => 'id',
+                                'target_key'  => 'p_id'
+                        ),
+                //关联自身 父栏目 --从属关系
+                'sub_column_assoc_column' => array(
+                                QDB::BELONGS_TO => 'column',
+                                'source_key'  => 'p_id',
+                                'target_key'  => 'id'
+                        ),
 
             ),
 
@@ -127,13 +162,6 @@ class Column extends QDB_ActiveRecord_Abstract
                     array('is_int', '父id必须是一个整数'),
 
                 ),
-
-                'sort' => array
-                (
-                    array('is_int', '排序必须是一个整数'),
-
-                ),
-
 
             ),
         );
