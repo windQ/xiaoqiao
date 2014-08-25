@@ -46,6 +46,19 @@ class Product extends QDB_ActiveRecord_Abstract
                  * 添加对象间的关联
                  */
                 # 'other' => array('has_one' => 'Class'),
+                'prod_assoc_sub_column' => array(
+                     QDB::HAS_ONE => 'column',
+                     'source_key' => 'sub_column_id',
+                     'target_key' => 'id',
+                     'on_delete'  => 'skip'
+                ),
+                
+                'prod_assoc_column' => array(
+                     QDB::HAS_ONE => 'column',
+                     'source_key' => 'column',
+                     'target_key' => 'id',
+                     'on_delete'  => 'skip'
+                )
 
             ),
 
@@ -85,6 +98,7 @@ class Product extends QDB_ActiveRecord_Abstract
             (
                 # 属性名 => 填充值
                 # 'is_locked' => 0,
+                'create_time' => self::AUTOFILL_TIMESTAMP
             ),
 
             /**
@@ -115,42 +129,6 @@ class Product extends QDB_ActiveRecord_Abstract
              */
             'validations' => array
             (
-                'title' => array
-                (
-                    array('max_length', 100, 'title不能超过 100 个字符'),
-
-                ),
-
-                'cover' => array
-                (
-                    array('max_length', 100, '封面不能超过 100 个字符'),
-
-                ),
-
-                'images' => array
-                (
-                    array('max_length', 300, '图片集合不能超过 300 个字符'),
-
-                ),
-
-                'column' => array
-                (
-                    array('max_length', 45, 'column不能超过 45 个字符'),
-
-                ),
-
-                'sub_column_id' => array
-                (
-                    array('max_length', 45, 'sub_column_id不能超过 45 个字符'),
-
-                ),
-
-                'create_time' => array
-                (
-                    array('max_length', 45, '创建时间不能超过 45 个字符'),
-
-                ),
-
 
             ),
         );

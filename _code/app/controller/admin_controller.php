@@ -87,6 +87,7 @@ class Controller_Admin extends Controller_Abstract
 	
 	function actionNewsAct()
 	{
+		$_POST = array_map( 'trim' , $_POST );
 		$id         = intval( $this->_context->id );
 		$title      = $this->_context->title;
 		$cover      = $this->_context->cover;
@@ -97,6 +98,35 @@ class Controller_Admin extends Controller_Abstract
 		if( $title == '' || $column == 0 || $sub_column == 0 || $contents == '' )
 		{
 			return $this->_redirectAlert( $this->_http_referer, '请输入正确的内容' );
+		}
+		
+		if( isset( $_FILES[ 'cover' ] ) )
+		{
+			if( $_FILES[ 'cover' ][ 'error' ] != 0 )
+			{
+				return $this->_redirectAlert( $this->_http_referer, "上传失败" );
+			}
+			//上传封面图
+			$uploader = new Helper_Uploader_File( $_FILES[ 'cover' ], 'cover' );
+			//判断文件类型
+			$allowed_types = Q::ini( 'appini/img_allowed_types' );
+			$upload_path   = Q::ini( 'appini/cover_upload_path' );
+			if( !$uploader->isValid( $allowed_types ) )
+			{
+				return $this->_redirectAlert( $this->_http_referer, "图片格式错误\n请上传格式为{$allowed_types}的图片" );
+			}
+			$extname = $uploader->extname();
+			$upload_path .= date( 'Ymd' ).DS;
+			if( !is_dir( $upload_path ) )
+			{
+				mkdir( $upload_path, true, 0777 );
+			}
+			
+			$upload_file = $upload_path.$sub_column.'_'.uniqid( date( 'YmdHis' ) ).'.'.$extname;
+			//移动文件 到指定目录
+			$uploader->move( $upload_file );
+			$cover = $upload_file;
+			unset( $uploader );
 		}
 		
 		try{
@@ -117,6 +147,7 @@ class Controller_Admin extends Controller_Abstract
 			$new_obj->save();
 			return $this->_redirectAlert( url( 'admin/NewsList', array( 'column' => $column ) ), '保存成功' );
 		} catch ( Exception $ex ) {
+			throw $ex;exit();
 			return $this->_redirectAlert( $this->_http_referer, '操作失败' );
 		}
 	}
@@ -138,7 +169,7 @@ class Controller_Admin extends Controller_Abstract
 		$page = $page == 0 ? 1 : $page;
 		$offset = ( $page - 1 ) * $page_size;
 		$news = News::find( '`column` = ?', $column )->limit( $offset, $page_size )->getAll();
-		$column_info = array( $column => $columns[ $column ] );
+		$column_info = array( 'id' => $column, 'name' => $columns[ $column ] );
 		$this->_view[ 'column_info' ] = $column_info;
 		$this->_view[ 'news' ] = $news;
 		
@@ -210,6 +241,146 @@ class Controller_Admin extends Controller_Abstract
 	}
 	
 	/**
+	 * 上传图片页面
+	 * 图片分成大中小三份，
+	 * 大图用作局部放大
+	 * 中图查看，
+	 * 小图列表
+	 */
+	function actionPhotoPost()
+	{
+		$column = intval( $this->_context->column );
+		$id = intval( $this->_context->id );
+		$columns = Q::ini( 'appini/columns' );
+		if( $column == 0 || !isset( $columns[ $column ] ) )
+		{
+			return $this->_redirectAlert( url( 'admin/index' ) );
+		}
+		
+		if( $id != 0 )
+		{
+			$product = Product::find( 'id = ?', $id )->getOne();
+			$this->_view[ 'product' ] = $product;
+		}
+		
+		$sub_column = Column::find( 'p_id = ?', $column )->getAll();
+		$column_info = array( 'id' => $column, 'name' => $columns[ $column ] );
+		$this->_view[ 'column_info' ] = $column_info;
+		$this->_view[ 'sub_column' ] = $sub_column;
+		
+	}
+	
+	/**
+	 * 处理图片上传更新
+	 */
+	function actionPhotoAct()
+	{
+		$id            = intval( $this->_context->id );
+		$title         = $this->_context->title;
+		$description   = $this->_context->description;
+		$sub_column_id = intval( $this->_context->sub_column_id );
+		$column        = intval( $this->_context->column );
+	    $save_img      = $this->_context->save_img;
+	    $save_img      = is_array( $save_img ) ? $save_img : array();
+		if( $title == '' || $sub_column_id == 0 || $column == 0 )
+		{
+			return $this->_redirectAlert( $this->_http_referer, '请输入正确的内容' );
+		}
+		try{
+			
+			if( isset( $_FILES[ 'upload_img' ] ) )
+			{
+				//上传图片
+				$up_all_img = array();
+				$photo_upload_path = Q::ini( 'appini/photo_upload_path' );
+				$allowed_types = Q::ini( 'appini/img_allowed_types' );
+				$thumb_size = Q::ini( 'appini/photo_size/thumb' );
+				$middle_size= Q::ini( 'appini/photo_size/middle' );
+				
+				//文件名---部分
+				$photo_upload_path.= date( 'Ymd' ).DS;
+				if( !is_dir( $photo_upload_path ) )
+				{
+					mkdir( $photo_upload_path, true, 0777 );
+				}
+				$upload_obj = new Helper_Uploader();
+				$up_files   = $upload_obj->allFiles(); 
+				foreach( $up_files as $up_file )
+				{
+					//判断格式
+					if( !$up_file->isValid( $allowed_types ) )
+					{
+						return $this->_redirectAlert( $this->_http_referer, "图片格式错误\n请上传格式为{$allowed_types}的图片" );
+					}
+					$extname = $up_file->extname();
+					
+					//大图名
+					$photo_file_name = $column.'_'.uniqid( date( 'YmdHis' ) );
+					//大图路径
+					$photo_file = $photo_upload_path.$photo_file_name.'.'.$extname;
+					//缩略小图路径
+					$photo_thumb_file = $photo_upload_path.$photo_file_name.'_thumb.'.$extname;
+					//中图路径
+					$photo_middle_file = $photo_upload_path.$photo_file_name.'_middle.'.$extname;
+					
+					//上传大图
+					$up_file->move( $photo_file );
+					
+					//生成缩略图
+					$image_thumb = Helper_Image::createFromFile( $photo_file, $extname );
+					$image_middle= Helper_Image::createFromFile( $photo_file, $extname );
+					$image_thumb->crop( $thumb_size[ 'width' ], $thumb_size[ 'height' ], array('fullimage' => true) );
+					$image_middle->crop( $middle_size[ 'width' ], $middle_size[ 'height' ], array('fullimage' => true) );
+					$image_thumb->saveAsJpeg( $photo_thumb_file );
+					$image_middle->saveAsJpeg( $photo_middle_file );
+					$up_all_img[] = $photo_thumb_file;
+					unset( $image_thumb );
+					unset( $image_middle );
+				}
+				unset( $upload_obj );
+			}
+			
+			$up_all_img = array_merge( $save_img, $up_all_img );
+			
+			//插入数据库
+			$product_data = array(
+			    'id' => $id,
+			    'title' => $title,
+			    'description' => $description,
+			    'images'      => json_encode( $up_all_img ),
+			    'column'      => $column,
+			    'sub_column_id'=>$sub_column_id
+			);
+			
+			$product_obj = new Product( $product_data );
+			
+			if( $id != 0 )
+			{
+				$product_obj->changePropForce( 'id', $id );
+			}
+			
+			$product_obj->save();
+			
+		} catch ( Exception $ex ) {
+			throw $ex;
+		}
+		
+		return $this->_redirectAlert( url( 'admin/photolist', array( 'column' => $column ) ) );
+	}
+	
+	function actionPhotoList()
+	{
+		$column = intval( $this->_context->column );
+		if( $column == 0 )
+		{
+			return $this->_redirectAlert( url( 'admin/index' ) );
+		}
+		
+		$products = Product::find( '`column` = ?', $column )->getAll();
+		$this->_view[ 'products' ] = $products;
+	}
+	
+	/**
 	 * 删除除非模型定义，一般都是关联删除
 	 */
 	function actionDel()
@@ -230,6 +401,10 @@ class Controller_Admin extends Controller_Abstract
 				
 				case 'news':
 					$del_obj = News::meta();
+				break;
+				
+				case 'product':
+					$del_obj = Product::meta();
 				break;
 			}
 			

@@ -33,9 +33,16 @@
                 </li>
                 <?php /*商业合作栏目*/if( $column == 2 ):;?>
                 <li>
-                <label class="name">封面图：</label>
-                <input type = "file" name = 'cover' value = '' />
+	                <label class="name">封面图：</label>
+	                <input type = "file" name = 'cover' value = '' />
                 </li>
+                <?php if( $news->cover != '' ):;?>
+                <li>
+                <label class="name">&nbsp;</label>
+	                <img src = "<?php echo $_BASE_DIR.$news->cover?>" alt = '封面图' />
+                </li>
+                <?php endif;?>
+                
                 <?php endif;?>
                 <li><label class="name">内容：</label>
                 <script id="editor" style="width:1024px;height:500px;"><?php echo $news->contents;?></script>
@@ -56,5 +63,8 @@
 <script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?php echo $_BASE_DIR;?>js/admin_fun.js"></script>
+<script type="text/javascript">
+var ue = UE.getEditor('editor');
+</script>
 </body>
 </html>

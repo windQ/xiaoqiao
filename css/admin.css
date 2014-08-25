@@ -8,6 +8,7 @@ dl, ul {clear: left;text-align: left;}
 dt, dd, li {display: block;}
 h1, h2, h3, h4, h5 {margin: 0;}
 select, input {font-size: 9pt;}
+.clear{ clear: both; }
 .green_btn {background: none repeat scroll 0 0 #3c8c43;border: medium none;border-radius: 3px;color: #fff;cursor: pointer;padding: 5px 10px;}
 .green_btn:hover {background: none repeat scroll 0 0 #4f9a55;color: #fff;}
 .delTips p input, .addStylewrap p input, .updateTips p input {float: none;padding: 5px 0;width: 200px;}
@@ -39,3 +40,6 @@ select, input {font-size: 9pt;}
 .addContent .childTopic li {border-top: medium none;padding-bottom: 0;}
 .addContent .delchildTopic {margin-left: 10px;padding: 5px 10px;}
 .style-wrap {margin: 0 auto;overflow: hidden;position: relative;width: 98%;}
+.images_div{width: 350px; float: left;}
+.images_div input{ margin: 5px 0px; }
+.a_del{ text-decoration: none; color: red;}

@@ -181,8 +181,8 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-		          <li><a href="<?php echo url('admin/makeup',array('column'=>3));?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/makeuplist',array('column'=>3));?>" target="main">图片列表</a></li>
+		          <li><a href="<?php echo url('admin/photopost',array('column'=>3));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/photolist',array('column'=>3));?>" target="main">图片列表</a></li>
 		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>3));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
@@ -195,8 +195,8 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-				  <li><a href="<?php echo url('admin/studio',array('column'=>4));?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/studiolist',array('column'=>4));?>" target="main">图片列表</a></li>
+				  <li><a href="<?php echo url('admin/photopost',array('column'=>4));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/photolist',array('column'=>4));?>" target="main">图片列表</a></li>
 		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>4));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>
@@ -223,8 +223,8 @@ H1 a {
 		          </tr>
 		        </table>
 		        <ul class="MM">
-		          <li><a href="<?php echo url('admin/product',array('column'=>6));?>" target="main">上传图片</a></li>
-		          <li><a href="<?php echo url('admin/productlist',array('column'=>6));?>production_del.html" target="main">图片列表</a></li>
+		          <li><a href="<?php echo url('admin/photopost',array('column'=>6));?>" target="main">上传图片</a></li>
+		          <li><a href="<?php echo url('admin/photolist',array('column'=>6));?>production_del.html" target="main">图片列表</a></li>
 		          <li><a href="<?php echo url('admin/addcolumn',array('column'=>6));?>" target="main">添加子栏目</a></li>
 		        </ul>
 		      </div>

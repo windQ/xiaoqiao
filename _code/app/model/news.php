@@ -137,7 +137,7 @@ class News extends QDB_ActiveRecord_Abstract
 
                 'cover' => array
                 (
-                    array('max_length', 45, '封面图片不能超过 45 个字符'),
+                    array('max_length', 150, '封面图片不能超过 150 个字符'),
 
                 ),
 

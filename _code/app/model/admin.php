@@ -121,12 +121,6 @@ class Admin extends QDB_ActiveRecord_Abstract
 
                 ),
 
-                'password' => array
-                (
-                    array('max_length', 50, 'password不能超过 50 个字符'),
-
-                ),
-
                 'status' => array
                 (
                     array('is_int', '管理员状态，0为禁用，1为激活必须是一个整数'),

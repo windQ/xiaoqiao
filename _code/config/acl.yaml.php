@@ -9,3 +9,10 @@
 # 访问规则示例
 #
 
+admin:
+  allow: admin,super_admin
+  actions:
+    login:
+      allow: ACL_EVERYONE
+    index:
+      allow: ACL_EVERYONE
