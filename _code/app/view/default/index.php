@@ -136,6 +136,17 @@
 			<li>Copyright ©2008 [使用者网站] Powered By [网站程序名称] Version 1.0.0 </li>
 		</ul>
 	</div>
+	<div class="fixd">
+		<ul>
+			<li class="title">QQ在线咨询</li>
+			<li><img src="images/service.jpg"></li>
+			<li><a href="">小兰老师</a></li>
+			<li><a href="">兔子老师</a></li>
+			<li><a href="">苍老师</a></li>
+			<li><a href="">小泽老师</a></li>
+		</ul>
+		<span></span>
+	</div>
 	<script type="text/javascript">
 	var div_width = $("#demo1 img").length * 252;
 	$("#demo1,#demo2").css("width",div_width); 
@@ -155,6 +166,15 @@
 	var MyMar=setInterval(Marquee,speed);
 	tab.onmouseover=function() {clearInterval(MyMar)};
 	tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+
+	$(".fixd span").click(function(){
+		if (!$(".fixd ul").is(":visible")) {
+			$(".fixd ul").animate({width:"show"});
+		}
+		else{
+			$(".fixd ul").animate({width:"hide"});
+		}
+	});
 	</script>
 </body>
 </html>

@@ -33,8 +33,8 @@
                     foreach( $images as $ls_image ):;
                     $big_img = str_replace( '_thumb' , '', $ls_image );
                 ?>
-                <li>
-                    <a href = "<?php echo $_BASE_DIR.$big_img;?>" target="_blank" title = "查看大图">
+                <li class="clearfix">
+                    <a href = "<?php echo $_BASE_DIR.$big_img;?>" target="_blank" title = "查看大图" class="big_view">
                         <img src = "<?php echo $_BASE_DIR.$ls_image;?>" alt = "" />
                     </a>
                     <input type = "hidden" name = "save_img[]" value = "<?php echo $ls_image;?>" />
