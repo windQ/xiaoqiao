@@ -282,6 +282,7 @@ class Controller_Admin extends Controller_Abstract
 		$column        = intval( $this->_context->column );
 	    $save_img      = $this->_context->save_img;
 	    $save_img      = is_array( $save_img ) ? $save_img : array();
+	    $up_all_img = array();
 		if( $title == '' || $sub_column_id == 0 || $column == 0 )
 		{
 			return $this->_redirectAlert( $this->_http_referer, '请输入正确的内容' );
@@ -291,7 +292,6 @@ class Controller_Admin extends Controller_Abstract
 			if( isset( $_FILES[ 'upload_img' ] ) )
 			{
 				//上传图片
-				$up_all_img = array();
 				$photo_upload_path = Q::ini( 'appini/photo_upload_path' );
 				$allowed_types = Q::ini( 'appini/img_allowed_types' );
 				$thumb_size = Q::ini( 'appini/photo_size/thumb' );
