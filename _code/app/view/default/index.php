@@ -1,35 +1,7 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>彩妆</title>
-<meta name="Keywords" content="彩妆" />
-<meta name="Description" content="彩妆" />
-<link rel="stylesheet" type="text/css" href="css/reset.css">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-</head>
-<body>
-	<!-- 头部导航部分 -->
-	<div class="header">
-		<img src="images/banner.jpg">
-		<div class="header_nav">
-			<ul class="clearfix">
-				<li><a href="index.html" class="cur">首页</a></li>
-				<li><a href="about_us.html">关于我们</a></li>
-				<li><a href="team_info.html">团队介绍</a></li>
-				<li><a href="train.html">彩妆培训</a></li>
-				<li><a href="#">商业和作</a></li>
-				<li><a href="#">新娘跟妆</a></li>
-				<li><a href="#">工作室动态</a></li>
-				<li><a href="#">新闻发布</a></li>
-				<li><a href="#">作品发布</a></li>
-				<li><a href="#">联系我们</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- 大图切换 -->
+<?php $this->_extends('_layouts/index_layout'); ?>
+<?php $this->_block('title'); ?>首页<?php $this->_endblock(); ?>
+<?php $this->_block('contents'); ?>
+<!-- 大图切换 -->
 	<div class="w1000 scroll">
 		<ul>
 			<li><img src="images/img_1.jpg"></li>
@@ -43,7 +15,7 @@
 		<ul class="clearfix">
 			<li><a href=""><img src="images/address.jpg"></a></li>
 			<li><a href=""><img src="images/tel.jpg"></a></li>
-			<li><a href=""><img src="images/QQ.jpg"></a></li>
+			<li><a href="tencent://message/?uin=QQ号&Site=www.xiaoqiao.com&Menu=yes"><img src="images/QQ.jpg"></a></li>
 			<li><a href=""><img src="images/Tweet.jpg"></a></li>
 			<li><a href=""><img src="images/Wechat.jpg"></a></li>
 		</ul>
@@ -105,49 +77,10 @@
 	<div class="w1000 shadow">
 		<img src="images/shadow.jpg">
 	</div>
-	<div class="w1000 contact_bottom clearfix">
-		<div class="contact_left">
-			<img src="images/img_5.jpg" width="85" height="85">
-			<p>
-				<span>ST时尚美学彩妆造型工作室</span>
-				上海ST时尚美学彩妆造型工作室是一家专业学化妆,新娘跟妆,广告化妆,彩妆造型培训,个人形象设计,影视化妆,舞台化妆,大型商演化妆造型的工作室，上海专业新娘跟妆,徐汇区专业彩妆造型培训,上海专业礼仪培训,上海专业彩妆造型,上海专业舞台化妆,上海专业舞台化妆培训班,专业舞台化妆培训班,上海专业年会化妆,专业彩妆造型培训，（包教包会，推荐工作，两年内免费进修，,咨询电话:13818843963 ，13651731734 ，021-54653259。
-			</p>
-		</div>
-		<div class="contact_right">
-			<ul>
-				<li class="user">陈老师、苏老师</li>
-				<li class="phone">(M)13651731734 / 13818843963</li>
-				<li class="mail">173591863@qq.com</li>
-			</ul>
-			<img src="images/QRCode.png">
-		</div>
-	</div>
-	<div class="foot">
-		<ul class="clearfix">
-			<li>上海专业学化妆造型培训</li>
-			<li>上海徐汇专业学化妆盘发培训</li>
-			<li>上海专业新娘跟妆盘发培训</li>
-			<li>上海专业企业员工形象培训</li>
-			<li>上海专业承接商业演出化妆造型</li>
-		</ul>
-	</div>
-	<div class="foot">
-		<ul class="clearfix">
-			<li>Copyright ©2008 [使用者网站] Powered By [网站程序名称] Version 1.0.0 </li>
-		</ul>
-	</div>
-	<div class="fixd">
-		<ul>
-			<li class="title">QQ在线咨询</li>
-			<li><img src="images/service.jpg"></li>
-			<li><a href="">小兰老师</a></li>
-			<li><a href="">兔子老师</a></li>
-			<li><a href="">苍老师</a></li>
-			<li><a href="">小泽老师</a></li>
-		</ul>
-		<span></span>
-	</div>
-	<script type="text/javascript">
+<?php $this->_endblock(); ?>
+
+<?php $this->_block('scripts'); ?>
+<script type="text/javascript">
 	var div_width = $("#demo1 img").length * 252;
 	$("#demo1,#demo2").css("width",div_width); 
 	$("#indemo").css("width",2 * div_width);
@@ -175,6 +108,6 @@
 			$(".fixd ul").animate({width:"hide"});
 		}
 	});
-	</script>
-</body>
-</html>
+</script>
+
+<?php $this->_endblock(); ?>
