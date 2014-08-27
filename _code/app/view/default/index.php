@@ -1,7 +1,48 @@
+<<<<<<< HEAD
 <?php $this->_extends('_layouts/index_layout'); ?>
 <?php $this->_block('title'); ?>首页<?php $this->_endblock(); ?>
 <?php $this->_block('contents'); ?>
 <!-- 大图切换 -->
+=======
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>彩妆</title>
+<meta name="Keywords" content="彩妆" />
+<meta name="Description" content="彩妆" />
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<style type="text/css">
+	.contact ul li a{background: inherit;float: none;margin: 0px;padding: 0px;}
+	.contact ul li a:hover{opacity: 1;}
+	.contact ul li #sina{background: url(images/Tweet.jpg) no-repeat;width: 113px;height: 102px;display: block;}
+	.contact ul li #weixin{background: url(images/Wechat.jpg) no-repeat;width: 96px;height: 102px;display: block;}
+</style>
+</head>
+<body>
+	<!-- 头部导航部分 -->
+	<div class="header">
+		<img src="images/banner.jpg">
+		<div class="header_nav">
+			<ul class="clearfix">
+				<li><a href="index.html" class="cur">首页</a></li>
+				<li><a href="about_us.html">关于我们</a></li>
+				<li><a href="team_info.html">团队介绍</a></li>
+				<li><a href="train.html">彩妆培训</a></li>
+				<li><a href="#">商业和作</a></li>
+				<li><a href="#">新娘跟妆</a></li>
+				<li><a href="#">工作室动态</a></li>
+				<li><a href="#">新闻发布</a></li>
+				<li><a href="#">作品发布</a></li>
+				<li><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 大图切换 -->
+>>>>>>> e59192bbc33a50ba445eb8cfeb2455f3b1b0f316
 	<div class="w1000 scroll">
 		<ul>
 			<li><img src="images/img_1.jpg"></li>
@@ -12,12 +53,18 @@
 	</div>
 	<!-- 联系方式 -->
 	<div class="w1000 contact">
-		<ul class="clearfix">
+		<ul class="clearfix bdsharebuttonbox" data-tag="share_1">
 			<li><a href=""><img src="images/address.jpg"></a></li>
 			<li><a href=""><img src="images/tel.jpg"></a></li>
+<<<<<<< HEAD
 			<li><a href="tencent://message/?uin=QQ号&Site=www.xiaoqiao.com&Menu=yes"><img src="images/QQ.jpg"></a></li>
 			<li><a href=""><img src="images/Tweet.jpg"></a></li>
 			<li><a href=""><img src="images/Wechat.jpg"></a></li>
+=======
+			<li><a href=""><img src="images/QQ.jpg"></a></li>
+			<li><a id="sina" class="bds_tsina" title="分享到新浪微博" data-cmd="tsina"></a></li>
+			<li><a id="weixin" class="bds_weixin" title="分享到微信" data-cmd="weixin" href="#"></a></li>
+>>>>>>> e59192bbc33a50ba445eb8cfeb2455f3b1b0f316
 		</ul>
 	</div>
 	<!-- 行业动态 -->
@@ -108,6 +155,15 @@
 			$(".fixd ul").animate({width:"hide"});
 		}
 	});
+<<<<<<< HEAD
 </script>
 
 <?php $this->_endblock(); ?>
+=======
+	</script>
+<script>
+     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+</body>
+</html>
+>>>>>>> e59192bbc33a50ba445eb8cfeb2455f3b1b0f316

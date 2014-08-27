@@ -6,6 +6,24 @@
  */
 class News extends QDB_ActiveRecord_Abstract
 {
+	
+	/**
+	 * 返回新闻的第一段(也就是后台管理员设置的第一个分页符之前的内容)
+	 */
+	public function get_summary()
+	{
+		$content = $this->contents;
+		$first_page = stripos( $content, '_ueditor_page_break_tag_' );
+		if( $first_page == false )
+		{
+			$summary = $content;
+		} else {
+			$summary = mb_substr( $content, 0, $first_page );
+		}
+		return $summary;
+		
+		
+	}
 
     /**
      * 返回对象的定义
@@ -41,6 +59,9 @@ class News extends QDB_ActiveRecord_Abstract
                  *  可以在此添加其他属性的设置
                  */
                 # 'other_prop' => array('readonly' => true),
+                
+                //取得新闻的第一段，
+                'get_summary' => array('getter' => 'get_summary'),
 
                 /**
                  * 添加对象间的关联

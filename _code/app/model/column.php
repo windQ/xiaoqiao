@@ -6,6 +6,22 @@
  */
 class Column extends QDB_ActiveRecord_Abstract
 {
+	
+	/**
+	 * 取得这个分类下的最新一条的新闻，（子分类）
+	 */
+	public function get_news()
+	{
+		return News::find( 'sub_column_id = ?', $this->id )->order( 'create_time DESC' )->getOne();
+	}
+	
+	/**
+	 * 取得这个分类下的最新的新闻，（子分类）
+	 */
+	public function get_photo()
+	{
+		return Product::find( 'sub_column_id = ?', $this->id )->order( 'create_time DESC' )->getOne();
+	}
 
     /**
      * 返回对象的定义
@@ -41,6 +57,10 @@ class Column extends QDB_ActiveRecord_Abstract
                  *  可以在此添加其他属性的设置
                  */
                 # 'other_prop' => array('readonly' => true),
+                
+                 //取得这个分类下最新的新闻
+                'get_news' => array( 'getter' => 'get_news' ),
+                'get_photo' => array( 'getter' => 'get_photo' ),
 
                 /**
                  * 添加对象间的关联
@@ -51,23 +71,27 @@ class Column extends QDB_ActiveRecord_Abstract
                 'columm_assoc_news' => array(
                                 QDB::HAS_MANY => 'news',
                                 'source_key'  => 'id',
-                                'target_key'  => 'column'
+                                'target_key'  => 'column',
+                                'on_find_order'   => 'm.create_time desc',
                         ),
                 'sub_column_assoc_news' => array(
                                 QDB::HAS_MANY => 'news',
                                 'source_key'  => 'id',
-                                'target_key'  => 'sub_column_id'
+                                'target_key'  => 'sub_column_id',
+                                'on_find_order'   => 'm.create_time desc',
                         ),
                 //关联作品表
                 'columm_assoc_product' => array(
                                 QDB::HAS_MANY => 'product',
                                 'source_key'  => 'id',
-                                'target_key'  => 'column'
+                                'target_key'  => 'column',
+                                'on_find_order'   => 'm.create_time desc',
                         ),
                 'sub_column_assoc_product' => array(
                                 QDB::HAS_MANY => 'product',
                                 'source_key'  => 'id',
-                                'target_key'  => 'sub_column_id'
+                                'target_key'  => 'sub_column_id',
+                                'on_find_order'   => 'm.create_time desc',
                         ),
                 //关联自身 子栏目 
                 'column_assoc_sub_column' => array(
