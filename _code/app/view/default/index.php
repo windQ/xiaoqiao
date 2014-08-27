@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<style type="text/css">
+	.contact ul li a{background: inherit;float: none;margin: 0px;padding: 0px;}
+	.contact ul li a:hover{opacity: 1;}
+	.contact ul li #sina{background: url(images/Tweet.jpg) no-repeat;width: 113px;height: 102px;display: block;}
+	.contact ul li #weixin{background: url(images/Wechat.jpg) no-repeat;width: 96px;height: 102px;display: block;}
+</style>
 </head>
 <body>
 	<!-- 头部导航部分 -->
@@ -40,12 +46,12 @@
 	</div>
 	<!-- 联系方式 -->
 	<div class="w1000 contact">
-		<ul class="clearfix">
+		<ul class="clearfix bdsharebuttonbox" data-tag="share_1">
 			<li><a href=""><img src="images/address.jpg"></a></li>
 			<li><a href=""><img src="images/tel.jpg"></a></li>
 			<li><a href=""><img src="images/QQ.jpg"></a></li>
-			<li><a href=""><img src="images/Tweet.jpg"></a></li>
-			<li><a href=""><img src="images/Wechat.jpg"></a></li>
+			<li><a id="sina" class="bds_tsina" title="分享到新浪微博" data-cmd="tsina"></a></li>
+			<li><a id="weixin" class="bds_weixin" title="分享到微信" data-cmd="weixin" href="#"></a></li>
 		</ul>
 	</div>
 	<!-- 行业动态 -->
@@ -176,5 +182,8 @@
 		}
 	});
 	</script>
+<script>
+     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 </body>
 </html>
