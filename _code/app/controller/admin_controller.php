@@ -100,7 +100,7 @@ class Controller_Admin extends Controller_Abstract
 			return $this->_redirectAlert( $this->_http_referer, '请输入正确的内容' );
 		}
 		
-		if( isset( $_FILES[ 'cover' ] ) )
+		if( isset( $_FILES[ 'cover' ] ) && $_FILES[ 'cover' ][ 'name' ] != "" )
 		{
 			if( $_FILES[ 'cover' ][ 'error' ] != 0 )
 			{
@@ -147,7 +147,8 @@ class Controller_Admin extends Controller_Abstract
 			$new_obj->save();
 			return $this->_redirectAlert( url( 'admin/NewsList', array( 'column' => $column ) ), '保存成功' );
 		} catch ( Exception $ex ) {
-			throw $ex;exit();
+			throw $ex;
+			exit();
 			return $this->_redirectAlert( $this->_http_referer, '操作失败' );
 		}
 	}
@@ -347,6 +348,7 @@ class Controller_Admin extends Controller_Abstract
 			    'id' => $id,
 			    'title' => $title,
 			    'description' => $description,
+			    'cover'       => isset( $up_all_img[ 0 ] ) ? $up_all_img[ 0 ] : '',
 			    'images'      => json_encode( $up_all_img ),
 			    'column'      => $column,
 			    'sub_column_id'=>$sub_column_id

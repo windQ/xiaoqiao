@@ -7,6 +7,12 @@
 <meta name="Description" content="彩妆" />
 <link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/reset.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $_BASE_DIR; ?>css/index.css" />
+<style type="text/css">
+	.contact ul li a{background: inherit;float: none;margin: 0px;padding: 0px;}
+	.contact ul li a:hover{opacity: 1;}
+	.contact ul li #sina{background: url(images/Tweet.jpg) no-repeat;width: 113px;height: 102px;display: block;}
+	.contact ul li #weixin{background: url(images/Wechat.jpg) no-repeat;width: 96px;height: 102px;display: block;}
+</style>
 <?php $this->_block('style'); ?><?php $this->_endblock(); ?>
 </head>
 <body>

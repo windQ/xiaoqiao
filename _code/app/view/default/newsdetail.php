@@ -24,15 +24,7 @@
 		</ul>
 	</div>
 	<!-- 联系方式 -->
-	<div class="w1000 contact">
-		<ul class="clearfix">
-			<li><a href=""><img src="images/address.jpg"></a></li>
-			<li><a href=""><img src="images/tel.jpg"></a></li>
-			<li><a href=""><img src="images/QQ.jpg"></a></li>
-			<li><a href=""><img src="images/Tweet.jpg"></a></li>
-			<li><a href=""><img src="images/Wechat.jpg"></a></li>
-		</ul>
-	</div>
+	<?php $this->_element('contact'); ?>
 	<div class="w1000 content clearfix">
 		<div class="content_left">
 			<h3><img src="images/course.jpg"></h3>
@@ -48,5 +40,13 @@
             <h3><?php echo $news_detail->title;?></h3>
             <h3><?php echo Helper_Fun::remove_page_break( $news_detail->contents );?></h3>
 		</div>
+		<p>
+		    <?php if( $prev_news->id != '' ):;?>
+		    <a href = "<?php echo url('/newsdetail',array('id'=>$prev_news->id,'column'=>$column));?>">上一篇:<?php echo Helper_Fun::_substr( $prev_news->title );?></a>
+		    <?php endif;?>
+		    <?php if( $next_news->id != '' ):;?>
+		    <a href = "<?php echo url('/newsdetail',array('id'=>$next_news->id,'column'=>$column));?>">下一篇:<?php echo Helper_Fun::_substr( $next_news->title );?></a>
+		    <?php endif;?>
+		</p>
 	</div>
 <?php $this->_endblock(); ?>
