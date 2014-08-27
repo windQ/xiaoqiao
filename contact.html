@@ -17,16 +17,10 @@
 .content_left ul li a{font-size: 14px;color: #5e5e5e;height: 35px;line-height: 35px;display: block;padding-left: 50px;}
 .content_left table{margin: 0px auto;color: #5e5e5e;font-size: 13px;}
 .content_left p  {margin-left: 37px;color: #5e5e5e;}
-.content_right{float: right;width: 660px;padding: 10px;color: #333;}
-.content_right p{text-indent: 25px;line-height: 25px;font-size: 13px;}
-.content_right p.tc{padding: 10px;background-color: #eee;border: dashed 1px #ddd;}
-.content_right h2{color: #FF2233;font-size: 14px;height: 40px;line-height: 40px;text-indent: 2em;font-weight: 700;}
-.content_right .yh{border:solid 2px #ddd;padding: 10px;margin-top: 10px;}
-.content_right .yh h2{text-indent: 0;}
-.content_right .yh ul li{margin-top: 5px;line-height: 25px;font-size: 13px;}
-.content_right .yh ul li span{font-weight: bold;color: #000;}
+.content_right{float: right;width: 660px;color: #333;border:solid 1px #ddd;height: 260px;margin-top: 10px;}
 .content{padding-bottom: 40px;}
 </style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MG4jjsUTxWpdRF1Y9GsolhlC"></script>
 </head>
 <body>
 	<!-- 头部导航部分 -->
@@ -105,7 +99,9 @@
 			</table>
 			<p>地址：上海市徐汇区漕溪北路737弄汇翠花园1号楼2703室      靠近影业街路口</p>
 		</div>
-		<div class="content_right"></div>
+		<div class="content_right" id="allmap">
+			
+		</div>
 	</div>
 	<!-- 脚 -->
 	<div class="w1000 shadow">
@@ -142,5 +138,27 @@
 			<li>Copyright ©2008 [使用者网站] Powered By [网站程序名称] Version 1.0.0 </li>
 		</ul>
 	</div>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+	// 创建地址解析器实例
+	var myGeo = new BMap.Geocoder();
+	// 将地址解析结果显示在地图上,并调整地图视野
+	myGeo.getPoint("北京市海淀区上地10街", function(point){
+		if (point) {
+			map.centerAndZoom(point, 20);
+			map.addOverlay(new BMap.Marker(point));             
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			map.enableContinuousZoom();
+			map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+			map.addControl(new BMap.ScaleControl());
+			var stCtrl = new BMap.PanoramaControl(); //构造全景控件
+			stCtrl.setOffset(new BMap.Size(20, 20));
+			map.addControl(stCtrl);//添加全景控件                    // 添加比例尺控件
+		}
+	}, "北京市");
+</script>
 </body>
 </html>
