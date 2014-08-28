@@ -30,8 +30,8 @@ $(function(){
 		$(this).siblings().find("img").css("border-color","#FFF");
 		var origin_img = $(this).find("img").attr("origin-img");
 		var middle_img = $(this).find("img").attr("middle-img");
-		$(".jqzoom img").attr("src",origin_img);
-		$(".jqzoom img").attr("jqimg",middle_img);
+		$(".jqzoom img").attr("src",middle_img);
+		$(".jqzoom img").attr("jqimg",origin_img);
 	});
 });
 
