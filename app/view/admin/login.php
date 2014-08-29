@@ -98,7 +98,7 @@ body {
 	                            <td width="13%" height="35" ><span class="login_txt">验证码：</span></td>
 	                            <td height="35" colspan="2" class="top_hui_text">
 	                                <input class="wenbenkuang" name="imgcode" type="text" value="" />
-	                                <img src="<?php echo url('default/code'); ?>" border="0" />
+	                                <img src="<?php echo url('default/code'); ?>" border="0" onClick = "change_code(this);" />
 	                            </td>
 	                          </tr>
 	                          <tr>
@@ -132,5 +132,11 @@ body {
     </table></td>
   </tr>
 </table>
+<script type="text/javascript">
+    function change_code( ele )
+    {
+        ele.src = "<?php echo url('default/code')?>"+'&'+Math.random();
+    }
+</script>
 </body>
 </html>

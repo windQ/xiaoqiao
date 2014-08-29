@@ -15,16 +15,19 @@
 	<div class="w1000 industry clearfix">
 		<div class="industry_left">
 			<img src="images/img_5.jpg">
-			<p>上海ST化妆造型彩妆培训工作室是目前国内化妆学校中首家且全日制一对一资深讲师授课、采用国际标准严格教学的上海化妆培训工作室，坐落于上海的时尚繁华中心——上海体育馆。ST已和多家艺术职业专门形成了紧密的教学合作关系，多年来不断进修学习并参加各种国际时尚大赛，是一所以化妆为主导专业的专业性化妆培训工作室……<a href="<?php echo url('/about'); ?>">【详情】</a></p>
+			<p>上海ST化妆造型彩妆培训工作室是目前国内化妆学校中首家且全日制一对一资深讲师授课、采用国际标准严格教学的上海化妆培训工作室，坐落于上海的时尚繁华中心——上海体育馆。ST已和多家艺术职业专门形成了紧密的教学合作关系，多年来不断进修学习并参加各种国际时尚大赛，是一所以化妆为主导专业的专业性化妆培训工作室……<a href="">【详情】</a></p>
 		</div>
 		<div class="industry_right">
 			<a href="" class="industry_a"><img src="images/industry_trends.jpg"></a>
 			<ul>
-				<li><a href=""><p>韩式新娘发型欣赏 彰显浪漫气质范儿</p><span>2014-8-9</span></a></li>
-				<li><a href=""><p>韩国猫眼妆容化妆教程 清淡紫打造party queen1</p><span>2014-8-9</span></a></li>
-				<li><a href=""><p>ST时尚美学专业彩妆培训教你打造立体巴掌小脸的五个化妆技巧</p><span>2014-8-9</span></a></li>
-				<li><a href=""><p>2014年康俊养生年会活动 </p><span>2014-8-9</span></a></li>
-				<li><a href=""><p>教你怎么打好腮红与修容，大脸变小脸不再难了。</p><span>2014-8-9</span></a></li>
+			    <?php foreach( $news as $ls_news ):;?>
+				<li>
+					<a href="<?php echo url('/newsdetail',array('id'=>$ls_news->id,'column'=>$ls_news->column));?>">
+						<p><?php echo Helper_Fun::_substr( $ls_news->title, 25)?></p>
+						<span><?php echo date( 'Y-m-d', $ls_news->create_time );?></span>
+					</a>
+				</li>
+				<?php endforeach;?>
 			</ul>
 		</div>
 	</div>

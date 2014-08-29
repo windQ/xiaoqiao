@@ -57,7 +57,8 @@ class Controller_Admin extends Controller_Abstract
 	 */
 	function actionLogout()
 	{
-		
+		$this->_app->cleanCurrentUser();
+		return $this->_redirectAlert( url( 'admin/login' ) );
 	}
 	
 	/**

@@ -7,9 +7,10 @@ class Controller_Default extends Controller_Abstract
 {
     function actionIndex()
     {
-        // 为 $this->_view 指定的值将会传递数据到视图中
-		# $this->_view['text'] = 'Hello!';
-		$this->_view[ 'column' ] = 'index';
+        //取前5条新闻
+        $news = News::find()->order( 'create_time DESC, id DESC' )->get(5);
+        $this->_view[ 'news' ] = $news;
+        $this->_view[ 'column' ] = 'index';
     }
     
     function actionAbout()

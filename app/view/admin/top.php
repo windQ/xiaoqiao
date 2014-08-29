@@ -6,10 +6,13 @@
 <script type="text/javascript">
 function logout(){
 	if (confirm("您确定要退出控制面板吗？"))
+	{
+		top.document.location.href = "<?php echo url('admin/logout');?>";
+	}
 	return false;
 }
 </script>
-<script type="javascript">
+<script type="text/javascript">
 function showsubmenu(sid) {
 	var whichEl = eval("submenu" + sid);
 	var menuTitle = eval("menuTitle" + sid);
@@ -43,7 +46,7 @@ function showsubmenu(sid) {
 <table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
   <tr>
     <td width="61%" height="64"><img src="images/logo.gif" width="262" height="64"></td>
-    <td class="out"><a href="javascript:void(0);" style="color:#FFF;" onclick="logout()">退出</a></td>
+    <td class="out"><a href="javascript:void(0);" style="color:#FFF;" onclick="logout();">退出</a></td>
   </tr>
 </table>
 </body>
