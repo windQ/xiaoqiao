@@ -36,13 +36,9 @@
 		<div class="content_left">
 			<h3><img src="images/course.jpg"></h3>
 			<ul>
-				<li><a href="#">白领个人形象班</a></li>
-				<li><a href="#">时尚整体造型师班</a></li>
-				<li><a href="#">专业盘发造型设计班</a></li>
-				<li><a href="#">新娘整体造型班</a></li>
-				<li><a href="#">影楼整体造型师班</a></li>
-				<li><a href="#">彩妆造型师班</a></li>
-				<li><a href="#">高级形象设计造型全能班</a></li>
+			    <?php foreach( $sub_column as $ls_sub ):;?>
+				<li><a href="<?php echo url('/news',array('column'=>$ls_sub->p_id,'sub_id'=>$ls_sub->id));?>"><?php echo $ls_sub->name;?></a></li>
+				<?php endforeach;?>
 			</ul>
 			<h3><img src="images/lxwm.jpg"></h3>
 			<table>

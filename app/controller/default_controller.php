@@ -15,7 +15,9 @@ class Controller_Default extends Controller_Abstract
     
     function actionAbout()
     {
+    	$sub_column = Column::find( 'p_id = ?', 1 )->getAll();
     	$this->_view[ 'column' ] = 'about';
+    	$this->_view[ 'sub_column' ] = $sub_column;
     }
     
     function actionNews()

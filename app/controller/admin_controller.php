@@ -304,6 +304,7 @@ class Controller_Admin extends Controller_Abstract
 				if( !is_dir( $photo_upload_path ) )
 				{
 					mkdir( $photo_upload_path, true, 0777 );
+					Helper_Fun::chmodR( $photo_upload_path );
 				}
 				$upload_obj = new Helper_Uploader();
 				$up_files   = $upload_obj->allFiles(); 
