@@ -33,7 +33,7 @@
 	</div>
 	<!-- 团队介绍 -->
 	<div class="w1000 team">
-		<a href=""></a>
+		<a href="<?php echo url('/team');?>"></a>
 		<ul class="clearfix">
 			<li class="photo_left">
 				<img src="images/laoshi.jpg">
@@ -53,7 +53,7 @@
 			</li>
 		</ul>
 	</div>
-	<h3 class="w1000"><a href="#"></a></h3>
+	<h3 class="w1000"><a href="<?php echo url('/photos',array("column"=>3)); ?>"></a></h3>
 	<div class="w1000 sutra" id="demo">
 		<div id="indemo">
 			<div id="demo1">

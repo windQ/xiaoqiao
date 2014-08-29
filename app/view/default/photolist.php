@@ -4,8 +4,9 @@
 <style type="text/css">
 .cont {overflow: hidden;padding-bottom: 40px;}
 .cont .list{margin: 20px 0px 0px 20px;display: inline-block;float: left;}
-.cont .list li{width: 140px;height: 30px;line-height: 30px;margin-top: 5px;background-color: #ccc;padding-left: 10px;border-radius: 5px;font-size: 14px;cursor: pointer;}
-.cont .list li:hover,.cont .list li.cur{background-color: #000;color: #FFF;}
+.cont .list li{margin-top: 5px;}
+.cont .list li a{display: block;width: 140px;height: 30px;line-height: 30px;overflow: hidden;color: #000;background-color: #ccc;padding-left: 10px;border-radius: 5px;font-size: 14px;cursor: pointer;}
+.cont .list li a:hover,.cont .list li a.cur{background-color: #000;color: #FFF;}
 .jqzoom{border:1px solid #BBB;position:relative;padding:0px;cursor:pointer;display: inline-block;margin-top: 20px;width: 300px;height: 400px;}
 .jqzoom img{width: 300px;height: 400px;}
 div.zoomdiv {z-index:999;position: absolute;top:0px;left:0px;width: 200px;height: 200px;background: #ffffff;border:1px solid #CCCCCC;display:block;text-align: center;overflow: hidden;}
@@ -30,8 +31,8 @@ div.jqZoomPup {z-index: 999;visibility: hidden;position: absolute;top:0px;left:0
 	<div class="cont w1000">
 		<ul class="list">
 		    <?php foreach( $sub_column as $ls_sub ):;?>
-			<li class="<?php $curr = 'ck_'.$ls_sub->id;echo $$curr;?>">
-				<a href = "<?php echo url('/photos',array('column'=>$column,'sub_id'=>$ls_sub->id));?>"><?php echo $ls_sub->name;?></a>
+			<li>
+				<a class="<?php $curr = 'ck_'.$ls_sub->id;echo $$curr;?>" href = "<?php echo url('/photos',array('column'=>$column,'sub_id'=>$ls_sub->id));?>"><?php echo $ls_sub->name;?></a>
 			</li>
 			<?php endforeach;?>
 		</ul>

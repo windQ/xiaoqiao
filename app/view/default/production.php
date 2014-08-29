@@ -7,7 +7,7 @@
 .cont .list li{margin-top: 5px;}
 .cont .list li a{display: block;width: 140px;height: 30px;line-height: 30px;overflow: hidden;color: #000;background-color: #ccc;padding-left: 10px;border-radius: 5px;font-size: 14px;cursor: pointer;}
 .cont .list li a:hover,.cont .list li a.cur{background-color: #000;color: #FFF;}
-.cont_right{float: right;width: 720px;margin-right: 20px;margin-top: 20px;}
+.cont_right{float: right;width: 720px;margin-right: 20px;margin-top: 20px;height: 400px;}
 .cont_right span{display: block;height: 20px;background-color: #ddd;margin-top: 5px;}
 .cont_right ul{display: none;}
 .cont_right ul li{float: left;width: 150px;margin-top: 30px;margin-left: 25px;}

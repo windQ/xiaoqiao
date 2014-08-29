@@ -24,15 +24,7 @@
 		</ul>
 	</div>
 	<!-- 联系方式 -->
-	<div class="w1000 contact">
-		<ul class="clearfix">
-			<li><a href=""><img src="images/address.jpg"></a></li>
-			<li><a href=""><img src="images/tel.jpg"></a></li>
-			<li><a href=""><img src="images/QQ.jpg"></a></li>
-			<li><a href=""><img src="images/Tweet.jpg"></a></li>
-			<li><a href=""><img src="images/Wechat.jpg"></a></li>
-		</ul>
-	</div>
+	<?php $this->_element('contact'); ?>
 	<div class="w1000 content clearfix">
 		<div class="content_left">
 			<h3><img src="images/lxwm.jpg"></h3>
