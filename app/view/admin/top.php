@@ -3,10 +3,9 @@
 <head>
 <title>管理后台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<script type="javascript">
+<script type="text/javascript">
 function logout(){
 	if (confirm("您确定要退出控制面板吗？"))
-	top.location = "";
 	return false;
 }
 </script>
@@ -21,6 +20,9 @@ function showsubmenu(sid) {
 	}
 }
 </script>
+<style type="text/css">
+	.out a{ float: right;display: block;margin-right: 20px;background-color: #c40000;width: 70px;text-align: center;margin-bottom: 28px;border-radius: 4px;}
+</style>
 <meta http-equiv=Content-Type content=text/html;charset=gb2312>
 <meta http-equiv="refresh" content="60">
 <script type="javascript">
@@ -41,6 +43,7 @@ function showsubmenu(sid) {
 <table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
   <tr>
     <td width="61%" height="64"><img src="images/logo.gif" width="262" height="64"></td>
+    <td class="out"><a href="javascript:void(0);" style="color:#FFF;" onclick="logout()">退出</a></td>
   </tr>
 </table>
 </body>
